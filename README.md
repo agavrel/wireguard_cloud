@@ -203,7 +203,7 @@ Then you have to register this new client to the server config file:
 ```
 echo "
 [Peer] #${wgclient}
-PublicKey = $(cat 'keys/${wgclient}_publickey')
+PublicKey = $(cat keys/${wgclient}_publickey)
 AllowedIPs = 10.200.200.2/32" | sudo tee -a /etc/wireguard/wg0.conf > /dev/null
 
 && wg addconf wg0 <(wg-quick strip wg0)
