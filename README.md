@@ -30,7 +30,7 @@ Then click on "Launch Instance" in order to create a server.
 * 1) Amazon Machine Image: Select Ubuntu "Server 18.04 LTS (HVM), SSD Volume Type"  
 * 2) Instance: Select "Free tier eligible" Instance of your choice  
 * 3) Instance Details: Check "Protect against accidental termination"  
-* 4) Storage: Don't go above 30gb if you want a free use.  
+* 4) Storage: Don't go above 30gb if you want a free use. You can set 16gb for example. 
 * 5) Tag: As you wish  
 * 6) Security:  edit the current security group (don't add one) and setup the following ports for in-bound traffic, accessible from anywhere:  
 
@@ -40,6 +40,8 @@ Then click on "Launch Instance" in order to create a server.
 | HTTPS  | TCP  | 443  | Anywhere /0.0.0.0/0, ::/0 |   |
 | Custom TCP  | TCP  | 943  | Anywhere /0.0.0.0/0, ::/0 |   |
 | Custom UDP  | UDP  | 1194  | Anywhere /0.0.0.0/0, ::/0 |   |
+| Custom UDP  | UDP  | 51820  | Anywhere /0.0.0.0/0, ::/0 |   |
+| Custom UDP  | TCP  | 51820  | Anywhere /0.0.0.0/0, ::/0 |   |
 
 **Review and launch the EC2 instance, when Amazon ask if you want a key say yes, name it aws_us_east_server and download it.**   
 
