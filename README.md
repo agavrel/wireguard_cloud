@@ -121,7 +121,7 @@ SaveConfig = true
 PostUp = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 ListenPort = 51820
-PrivateKey = $(cat 'keys/server_privatekey')" > /etc/wireguard/wg0.conf
+PrivateKey = $(cat 'keys/server_privatekey')"  | sudo tee -a /etc/wireguard/wg0.conf > /dev/null
 ```
 *Only one important thing: Check that the Private key correctly matches the one in keys/server_privatekey*  
 
@@ -204,7 +204,7 @@ Then you have to register this new client to the server config file:
 echo "
 [Peer] #${wgclient}
 PublicKey = $(cat 'keys/${wgclient}_publickey')
-AllowedIPs = 10.200.200.2/32" >> /etc/wireguard/wg0.conf
+AllowedIPs = 10.200.200.2/32" | sudo tee -a /etc/wireguard/wg0.conf > /dev/null
 
 && wg addconf wg0 <(wg-quick strip wg0)
 ```
