@@ -19,7 +19,7 @@ This tutorial will explain how to do it. I did with Amazon AWS EC2 service (free
 * 5) Generate the client config files (one for each user or device)
 
 ---
-### 1) Create an EC3 instance (Amazon) Subscription
+### 1) Create an EC2 instance (Amazon) Subscription
 
 Register to Amazon, select USA for the region.
 
@@ -41,7 +41,9 @@ Then click on "Launch Instance" in order to create a server.
 | Custom TCP  | TCP  | 943  | Anywhere /0.0.0.0/0, ::/0 |   |
 | Custom UDP  | UDP  | 1194  | Anywhere /0.0.0.0/0, ::/0 |   |
 
-**Review and launch the EC2 instance, when Amazon ask if you want a key say yes, name it aws_us_east_server and download it.**  
+**Review and launch the EC2 instance, when Amazon ask if you want a key say yes, name it aws_us_east_server and download it.**   
+
+Finally you have to allocate a new elastic IP and associate it to the existing EC2 Instance.
 
 ---
 
@@ -57,7 +59,7 @@ Add it to the ssh keys of your cpu, this will allow access to remote server with
 ssh-add ~/Downloads/aws_us_east_server.pem
 ```
 
-Connect to your remote server (you can close connection anytime with CTRL+D):
+Connect to your remote server (you can close connection anytime with CTRL+D) using the elastic IP you got from AWS:
 ```
 ssh ubuntu@13.84.227.135
 ```
