@@ -232,6 +232,9 @@ Endpoint = 13.84.227.135:51820
 AllowedIPs = 0.0.0.0/0
 PersistentKeepalive = 21" > clients/${wgclient}.conf
 ```
+
+**NB: Make sure to replace 13.84.227.135 with your actual elastic IP**  
+
 **3 important things:**  
 * In [Interface] you have to *replace the address' last number* (before 32) with the one that you previously edited
 * Here [Peer] is in fact the Wireguard server. *You should check that this PublicKey (named 'server_publickey' and stored in keys folder in this tutorial) match the one you have on your remote server*. ```cat /etc/wireguard/wg0.conf``` will also show you the PrivateKey that should correspond to server_privatekey.
