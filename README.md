@@ -270,6 +270,27 @@ On your local cpu:
 base64 -d > clients/client1.png
 ```
 
+##### Setup client on Linux
+
+Install wireguard:
+
+```
+sudo add-apt-repository ppa:wireguard/wireguard &&
+sudo apt-get update &&
+sudo apt install wireguard
+```
+Now copy the .conf file you got from your remote server to wireguard folder:
+```
+sudo cp client1.conf /etc/wireguard/
+```
+
+and activate with:
+```
+sudo wg-quick up client1
+```
+
+
+
 ### Any question? Anything I missed?
 
 Feel free to contact me at gavrel dot antonin at gmail dot com
